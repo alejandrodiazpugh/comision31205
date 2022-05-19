@@ -4,19 +4,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header>
+        <h2>Alejandro Díaz</h2>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Primera entrega de proyecto para la <strong>Comisión 31205</strong> en Coderhouse.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
