@@ -1,15 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import { Navbar } from './componentes/navbar';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h2>Alejandro Díaz</h2>
-        <p>
-          Primera entrega de proyecto para la <strong>Comisión 31205</strong> en Coderhouse.
-        </p>
-      </header>
+      <Navbar />
     </div>
   );
 }

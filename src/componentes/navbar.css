@@ -1,0 +1,67 @@
+/*-----VARIABLES, FONTS Y RESET----- */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600&display=swap');
+
+
+:root {
+    --clrAccent: #fcce80;
+    --clrMain: #90d4e4;
+    --clrSecondary: #f48581;
+    --clrBackground: #555;
+    --clrNavBar: #777;
+}
+*,
+*::before,
+*::after {
+    box-sizing: 0;
+    margin: 0;
+    padding: 0;
+}
+/*-----TIPOGRAFIA-----*/
+body {
+    font-family: "Red Hat Display", sans-serif;
+    background-color: var(--clrNavBar);
+}
+
+/*-----NAVBAR-----*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffF;
+    z-index: 9999;
+    padding-block: 1rem;
+    background-color: var(--clrBackground) ;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    margin-inline: 2rem;
+}
+.header__logo {
+    max-width: 8%;
+}
+.header__nombre {
+    font-weight: 600;
+    margin-inline: 0.8rem;
+    font-size:1.725em;
+    color: var(--clrSecondary);
+}
+.header__navegacion {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+    margin-inline-end: 4rem;
+}
+.header__links {
+    text-decoration: none;
+    color: var(--clrMain);
+
+}
+.header__links:focus,
+.header__links:hover {
+    color: var(--clrAccent);
+    border-radius: 25%;
+}
