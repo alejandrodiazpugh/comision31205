@@ -1,7 +1,7 @@
 import React from 'react'
 import swal from 'sweetalert'
 
-export default function ItemListContainer(prop) {
+export const ItemListContainer = () => {
     // Esto en teoría debería ser configurado en el container y luego mostrado en otro componente layout, no? Lo dejo así por el desafío
     let saludos = ["Hola", "Buen día", "Buenas tardes", "Buenas noches"]
 
