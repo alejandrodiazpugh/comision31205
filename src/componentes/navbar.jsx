@@ -1,6 +1,8 @@
 import React from "react";
+import Logo from "../images/logo2.jpg"
 import "./navbar.css"
-import Logo from "../images/logo2.jpg" 
+import { CartWidget } from "./CartWidget";
+
 export const Navbar = () => {
     return (
         <header className="header">
@@ -9,9 +11,10 @@ export const Navbar = () => {
                     <h2 className="header__nombre">Runners Riot</h2>
             </div>
             <ul className="header__navegacion">
-                <li><a className="header__links" href="#">Inicio</a></li>
-                <li><a className="header__links" href="#">Tienda</a></li>
-                <li><a className="header__links" href="#">Mi Carrito</a></li>
+                <li className="header__links">Inicio</li>
+                <li className="header__links">Tienda</li>
+                <li className="header__links">Mi Carrito</li>
+                <CartWidget />
             </ul>
         </header>
     )

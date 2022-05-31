@@ -6,8 +6,7 @@
     --clrAccent: #fcce80;
     --clrMain: #90d4e4;
     --clrSecondary: #f48581;
-    --clrBackground: #555;
-    --clrNavBar: #777;
+
 }
 *,
 *::before,
@@ -29,7 +28,7 @@ body {
     background-color: #ffF;
     z-index: 9999;
     padding-block: 1rem;
-    background-color: var(--clrBackground) ;
+    background-color: #495057;
 }
 
 .logo {
@@ -58,10 +57,9 @@ body {
 .header__links {
     text-decoration: none;
     color: var(--clrMain);
-
+    cursor: pointer;
 }
 .header__links:focus,
 .header__links:hover {
     color: var(--clrAccent);
-    border-radius: 25%;
 }
