@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Navbar } from './componentes/navbar';
+import { Navbar } from './componentes/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ItemListContainer } from './componentes/ItemListContainer';
 
