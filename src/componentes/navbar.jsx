@@ -14,7 +14,7 @@ export const Navbar = () => {
                 <li className="header__links">Inicio</li>
                 <li className="header__links">Tienda</li>
                 <li className="header__links">Mi Carrito</li>
-                <CartWidget />
+                <CartWidget itemsEnCarrito = { 0 }/>
             </ul>
         </header>
     )

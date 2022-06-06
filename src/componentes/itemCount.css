@@ -1,0 +1,43 @@
+/* -----OCULTAR FLECHAS DEL INPUT----- */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+/*-----ESPACIADO DE TARJETA-----*/
+
+.tarjeta {
+    margin-inline: 3rem;
+    margin-block: 2rem;
+}
+
+.btn-menosmas {
+   background-color: #90d4e4;
+   color: #333;
+   border: 1px solid #333;
+}
+
+.btn-menosmas:hover,
+.btn-menosmas:focus {
+    background-color: #90d4e4;
+    border: 1px solid #333;
+}
+
+.btn-add {
+    background-color: #f48581;
+    border: none;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+    border: none;
+    color: #333;
+    background-color: #f48581;
+}
