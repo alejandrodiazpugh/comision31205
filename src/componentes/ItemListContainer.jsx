@@ -24,7 +24,7 @@ export const ItemListContainer = () => {
             .then((result) => {
               setItems(result);
             })
-            .catch((error) => {
+            .catch(() => {
               setError(true);
               console.log(error);
             })
