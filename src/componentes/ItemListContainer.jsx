@@ -7,7 +7,7 @@ export const ItemListContainer = () => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        const productos = new Promise((res, rej) => {
+        const productos = new Promise((res) => {
             setTimeout(() => {
               res([
                 {id :1, nombre: "Air Jordan 1 High", color: "rojo", precio: 2500, stock: 10, img: "aj1"},
@@ -24,7 +24,7 @@ export const ItemListContainer = () => {
             .then((result) => {
               setItems(result);
             })
-            .catch((error) => {
+            .catch(() => {
               setError(true);
               console.log(error);
             })
