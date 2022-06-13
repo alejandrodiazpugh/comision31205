@@ -28,7 +28,7 @@ export default function Item({ item }) {
             <Card.Title>{ nombre }</Card.Title>
             <Card.Text>Color: { color }.</Card.Text>
             <Card.Text>Precio ${ precio }</Card.Text>
-            <Button style={{backgroundColor: "#fcce80", border: "none"}}>Ver Más</Button>
+            <Button style={{backgroundColor: "#fcce80", border: "none"}}>Detalle</Button>
         </Card.Body>
          <ItemCount stock = { stock } initial = { 1 } onAdd = { onAdd }/>
     </Card>
