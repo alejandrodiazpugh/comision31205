@@ -24,10 +24,9 @@ export function ItemDetailContainer() {
         )
     }, [])
 
-
   return (
-    <div>
-       {details.map(detail => <ItemDetail key = {detail.id} detail = { detail } />)}
+    <div style={{marginBlock: '10rem'}}>
+       {details.map(detail => <ItemDetail key = { detail.id } detail = { detail } />)}
     </div>
   )
 }

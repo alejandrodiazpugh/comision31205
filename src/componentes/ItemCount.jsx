@@ -24,16 +24,16 @@ export default function ItemCount({stock, initial, onAdd}) {
   }
 
   return (
-    <Card>
-      <ButtonGroup>
+    <Card style={{marginInline: "10rem"}}>
+      <ButtonGroup style={{marginInline: "2rem"}}>
           <Button className='btn-menosmas' onClick={ restar }>-</Button>
           <input type="number" style={{"textAlign": "center"}} value={ count } readOnly/>
           <Button className='btn-menosmas' onClick={ sumar }>+</Button>
       </ButtonGroup>
-      <Button onClick={onAdd} className="btn-add" style={{"marginTop": "1rem", marginInline: "0.5rem"}}>
+      <Button onClick={onAdd} className="btn-add" style={{"marginTop": "1rem", marginInline: "2rem"}}>
           Añadir
       </Button>
-      <Button onClick={()=> { setCount(initial) }} variant="light" style={{"marginTop": "1rem"}}>
+      <Button onClick={()=> { setCount(initial) }} variant="light" style={{"marginTop": "1rem", marginInline: "2rem"}}>
         Reset
       </Button>
   </Card>

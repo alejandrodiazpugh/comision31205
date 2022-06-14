@@ -9,7 +9,7 @@ function App() {
   const [cart, setCart] = useState(0);
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: "whitesmoke"}}>
       <Navbar setCart = { setCart } />
       <ItemListContainer cart = { cart }/>
       <ItemDetailContainer />

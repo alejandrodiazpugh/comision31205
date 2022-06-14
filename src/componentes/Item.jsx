@@ -1,5 +1,4 @@
 import React from 'react'
-import ItemCount from './ItemCount'
 import { Card, Button} from "react-bootstrap"
 import swal from 'sweetalert'
 
@@ -28,9 +27,8 @@ export default function Item({ item }) {
             <Card.Title>{ nombre }</Card.Title>
             <Card.Text>Color: { color }.</Card.Text>
             <Card.Text>Precio ${ precio }</Card.Text>
-            <Button style={{backgroundColor: "#fcce80", border: "none"}}>Detalle</Button>
+            <Button style={{backgroundColor: "#fcce80", border: "none"}}>Ver Más</Button>
         </Card.Body>
-         <ItemCount stock = { stock } initial = { 1 } onAdd = { onAdd }/>
     </Card>
     )
 }
