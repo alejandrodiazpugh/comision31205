@@ -6,7 +6,7 @@ export default function ItemList({ items }) {
     console.log(items)
   return (
     <>
-    <div style={ {display:"flex", flexWrap:"wrap", justifyContent: "center"} }>
+    <div style={ {display:"flex", flexWrap:"wrap", justifyContent: "center", alignItems:"center"} }>
         {items.map(item => <Item key={item.id} item = { item } />)}
     </div>
     </>
