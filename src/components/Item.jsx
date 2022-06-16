@@ -26,7 +26,7 @@ export default function Item({ item }) {
             <Card.Title>{ nombre }</Card.Title>
             <Card.Text>Color: { color }.</Card.Text>
             <Card.Text>Precio ${ precio }</Card.Text>
-            <Button style={{backgroundColor: "#fcce80", border: "none"}}>Ver Más</Button>
+            <Link to={"/item/:id"}><Button style={{backgroundColor: "#fcce80", border: "none"}}>Ver Más</Button></Link>
         </Card.Body>
     </Card>
     )
