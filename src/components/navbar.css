@@ -51,8 +51,8 @@ body {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 2rem;
-    margin-inline-end: 4rem;
+    gap: 1rem;
+    width: 50vw;
 }
 .header__links {
     text-decoration: none;

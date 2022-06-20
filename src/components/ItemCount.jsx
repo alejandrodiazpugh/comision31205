@@ -6,7 +6,7 @@ import swal from 'sweetalert'
 
 export default function ItemCount({stock, initial, onAdd}) {
   const [count, setCount] = useState(initial);
-  useEffect(() => { //en el after no se usó y lo podría haber hecho con un if, pero me sirve practicar el use effect
+  useEffect(() => { 
     if(count >= stock) {
       console.log("Pedido sobrepasa el stock")
       swal("Alerta",`Solo puedes ordenar un máximo de ${ stock } unidades de este producto.`, "info")
@@ -14,7 +14,7 @@ export default function ItemCount({stock, initial, onAdd}) {
   }, [count])
   
   const restar = () => {
-    count > initial ? setCount(count - 1) : console.log("la cantidad del pedido no puede ser menor"); // podría ser count > 1, pero estoy pensando que al declarar el inicial, la tienda no quiere que se pueda ordenar una cantidad menor
+    count > initial ? setCount(count - 1) : console.log("la cantidad del pedido no puede ser menor"); 
   }
 
   const sumar = () => {

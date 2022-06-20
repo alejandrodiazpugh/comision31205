@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from './ItemCount';
 import { Stack, Button, ButtonGroup } from "react-bootstrap" 
 import swal from 'sweetalert';
 
 export function ItemDetail({ detail }) {
-    const {id, nombre, descripcion, img, precio, color} = detail;
+    const { nombre, descripcion, img, precio, color, stock } = detail;
+    // const [load, setLoad] = useState();
 
     const onAdd = () => {
         swal({
             title: "Éxito",
             text: "Se han agregado los productos al carrito",
             icon: "success",
-            button: "OK"
+            button: "Volver a la tienda",
+            button: "Ir a carrito"
         })   
     }
 
@@ -22,7 +24,7 @@ export function ItemDetail({ detail }) {
             <div style={{}}>
                 <img src= { require("../images/"+ img +".jpg") } style={{width: "45vw", height: "80vh", objectFit:"contain"}} alt=""></img> 
             </div>
-        <div>
+        <div style={{display: "flex", flexDirection:"column", alignItems:"center "}}>
             <h2>{ nombre }</h2>
                 <h5>Color: { color }</h5>
                 <h6>Precio: <span style={{fontWeight:"bold"}}> ${ precio }.00 </span></h6>
@@ -42,13 +44,12 @@ export function ItemDetail({ detail }) {
                     <Button variant="secondary">31cm</Button>
                 </ButtonGroup>
                 <p style={{marginInline: "10rem", marginBlock: "5rem"}}>{ descripcion }</p>
-                <ItemCount stock={10} initial={1} onAdd = {onAdd}/>
+                <ItemCount stock={ stock } initial={ 1 } onAdd = {onAdd}/>
         </div>
 
         </div>
         
     </Stack>
-        
     </>
 
   )
