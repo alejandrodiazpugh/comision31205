@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ItemListContainer } from './components/ItemListContainer';
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
+import { Carrito } from "./components/Carrito"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
       <Route path='/Inicio' element={<ItemListContainer cart = { cart } />} />
       <Route path='/category/:categoryId' element={<ItemListContainer cart = { cart }/>} />
       <Route path= '/item/:itemId' element={<ItemDetailContainer/>} />
+      <Route path= '/Carrito' element={<Carrito />} />
     </Routes>
       </BrowserRouter>
   );

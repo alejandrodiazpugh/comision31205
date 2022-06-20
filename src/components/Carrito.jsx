@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Carrito() {
+export function Carrito() {
   return (
     <div>Carrito</div>
   )
