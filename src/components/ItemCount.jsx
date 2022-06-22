@@ -4,7 +4,7 @@ import "./itemCount.css"
 import swal from 'sweetalert'
 
 
-export default function ItemCount({stock, initial, onAdd}) {
+export default function ItemCount({ stock, initial, onAdd }) {
   const [count, setCount] = useState(initial);
 
   useEffect(() => { 
@@ -31,7 +31,7 @@ export default function ItemCount({stock, initial, onAdd}) {
           <input type="number" style={{"textAlign": "center"}} value={ count } readOnly/>
           <Button className='btn-menosmas' onClick={ sumar }>+</Button>
       </ButtonGroup>
-      <Button onClick={onAdd} className="btn-add" style={{"marginTop": "1rem", marginInline: "2rem"}}>
+      <Button onClick={() => onAdd(count)} className="btn-add" style={{"marginTop": "1rem", marginInline: "2rem"}}>
           Añadir
       </Button>
       <Button onClick={()=> { setCount(initial) }} variant="light" style={{"marginTop": "1rem", marginInline: "2rem"}}>

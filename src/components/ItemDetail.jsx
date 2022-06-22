@@ -3,19 +3,25 @@ import ItemCount from './ItemCount';
 import { Stack, Button, ButtonGroup } from "react-bootstrap" 
 import swal from 'sweetalert';
 import { Link } from "react-router-dom"
+import { MiContexto } from '../context/CartContext';
+import { useContext } from 'react';
 
 export function ItemDetail({ detail }) {
-    const { nombre, descripcion, img, precio, color, stock } = detail;
-    const[dismount, setDismount] = useState(false);
+    const { id, nombre, descripcion, img, precio, color, stock } = detail;
+    const [dismount, setDismount] = useState(false);
+    const { isInCart, addItem, getItemQty } = useContext(MiContexto);
+    
+    const onAdd = (estado) => {
 
-    const onAdd = () => {
+        isInCart(id);
+        addItem(detail, estado);
+        console.log(getItemQty());
         swal({
             title: "Éxito",
             text: "Se han agregado los productos al carrito",
             icon: "success",
-            button: "Volver a la tienda",
             button: "OK"
-        })
+        });
         setTimeout(setDismount(true),1000);   
     }
 
@@ -32,9 +38,9 @@ export function ItemDetail({ detail }) {
                 <h6>Precio: <span style={{fontWeight:"bold"}}> ${ precio }.00 </span></h6>
                 <select htmlFor="meses">
                     <option value="default" disabled defaultValue={"Seleccionar"}>Pago a:</option>
-                    <option value="size6">1 pago de ${ precio }</option>
-                    <option value="size7">3 pagos de ${ (precio / 3).toPrecision(5) }</option>
-                    <option value="size8">6 pagos de ${ (precio / 6).toPrecision(5) }</option>
+                    <option value="1pago">1 pago de ${ precio }</option>
+                    <option value="3pagos">3 pagos de ${ (precio / 3).toPrecision(5) }</option>
+                    <option value="6pagos">6 pagos de ${ (precio / 6).toPrecision(5) }</option>
                 </select>
                 <h6>Talla:</h6>
                 <ButtonGroup className='me-3'>

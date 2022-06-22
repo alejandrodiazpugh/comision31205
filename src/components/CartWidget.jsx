@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BsFillCartFill } from "react-icons/bs"
-import swal from 'sweetalert'
+import { MiContexto } from '../context/CartContext';
+import { Badge } from "react-bootstrap"
 
-export const CartWidget = ({ itemsEnCarrito } ) => {
+
+export const CartWidget = () => {
+  const { getItemQty } = useContext(MiContexto);
+
   return (
     <>
-    <li className='header__links' onClick={() => swal("Parce, no has agregado nada al carrito.")}><BsFillCartFill /> <span className='small'>{ itemsEnCarrito }</span></li>
+    <li className='header__links'><BsFillCartFill />{(getItemQty() === 0) ? "" : <Badge pill bg="danger">{ getItemQty() }</Badge>}</li>
+    
     </>
   )
 }
