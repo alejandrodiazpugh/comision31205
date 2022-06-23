@@ -22,7 +22,7 @@ export const Navbar = () => {
                 <Link to="./category/Yeezy" style={{textDecoration:"none"}}><li className="header__links">Yeezys</li></Link>
                 <Link to="./category/Converse" style={{textDecoration:"none"}}><li className="header__links">Converse</li></Link>
                 <Link to="./Carrito" style={{textDecoration:"none"}}><li className="header__links"> Mi Carrito</li></Link>
-                <CartWidget />
+                <Link to="./Carrito"> <CartWidget /> </Link>
             </ul>
         </header>
     )

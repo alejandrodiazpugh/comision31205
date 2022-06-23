@@ -26,7 +26,8 @@ export default function CartContext({ children }) {
 
     //Encuentra el precio total del carrito
     const getItemPrice = () => {
-        return carrito.reduce((acc, x) => acc + x.precio )
+        return carrito.reduce((acc, x) => acc + x.precio, 0)
+
 
     }
 

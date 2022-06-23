@@ -30,7 +30,7 @@ export function ItemDetail({ detail }) {
     <Stack gap={3}>
         <div style={{display: "flex", alignItems:"center", borderRadius: "0.5rem", backgroundColor:"white"}}>
             <div>
-                <img src= { require("../images/"+ img +".jpg") } style={{width: "45vw", height: "80vh", objectFit:"contain"}} alt=""></img> 
+                <img src= { require("../images/"+ img +".png") } style={{width: "45vw", height: "80vh", objectFit:"contain"}} alt=""></img> 
             </div>
         <div style={{display: "flex", flexDirection:"column", alignItems:"center "}}>
             <h2>{ nombre }</h2>
