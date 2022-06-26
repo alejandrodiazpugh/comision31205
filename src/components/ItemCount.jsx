@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Button, ButtonGroup }from "react-bootstrap"
-import "./itemCount.css"
+import "../css/itemCount.css"
 import swal from 'sweetalert'
 
 
