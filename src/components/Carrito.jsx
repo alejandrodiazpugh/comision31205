@@ -10,10 +10,7 @@ export function Carrito() {
   const {
     clear,
     carrito,
-    removeItem,
-    addItem,
-    getItemPrice,
-    getItemQty,
+    getItemPrice
   } = useContext(MiContexto);
 
   return (

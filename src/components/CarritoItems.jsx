@@ -8,13 +8,13 @@ export function CarritoItems({producto}) {
     
   return (
    <>
-    <tr style={{textAlign: "center"}}>
-      <td><img src={require("../images/"+producto.img+".png") } alt="" style={{width: "10vw"}} /></td>
+    <tr style={{textAlign: "center", marginBlock:"auto", height:"10vh"}}>
+      <td><img src={require("../images/"+producto.img+".png") } alt="" style={{width: "5vw", Height: "10vh"}} /></td>
       <td>{producto.category} {producto.nombre}</td>
       <td>{producto.quantity}</td>
       <td>${producto.precio}</td>
       <td>${producto.precio * producto.quantity}</td>
-      <td><Button variant="danger" onClick={()=>removeItem(producto.id)}>Eliminar</Button></td>
+      <td><Button style={{backgroundColor: "#f48581", border: "none"}} onClick={()=>removeItem(producto.id)}>Eliminar</Button></td>
     </tr>
    </>
 )}
