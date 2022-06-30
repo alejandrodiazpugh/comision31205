@@ -12,7 +12,7 @@ export default function Item({ item }) {
     
   return (
     <Card style={{ width: '18rem'}} className="tarjeta">
-        <Card.Img variant="top" style={ imgStyle} src= { require("../images/"+img+".png") } />
+        <Card.Img variant="top" style={ imgStyle } src= { require("../images/"+img+".png") } />
         <Card.Body style={{display:"flex", flexDirection:"column" ,justifyContent:"center", alignItems:"center"}}>
             <Card.Text style={{fontWeight:"lighter"}}>{ category }</Card.Text>
             <Card.Title style={{textAlign:"center"}}>{ nombre }</Card.Title>
