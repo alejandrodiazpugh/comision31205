@@ -1,0 +1,155 @@
+/*-----VARIABLES, FONTS Y RESET----- */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600&display=swap');
+
+
+:root {
+    --clrAccent: #fcce80;
+    --clrMain: #90d4e4;
+    --clrSecondary: #f48581;
+    --clrNavBar: #4b5158;
+    --clrBackground: #34344A;
+
+}
+*,
+*::before,
+*::after {
+    box-sizing: 0;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+/*-----TIPOGRAFIA-----*/
+body {
+    font-family: "Red Hat Display", sans-serif;
+    background-color: var(--clrNavBar);
+    overflow-x: hidden;
+}
+
+/* ----- SCROLLBAR ----- */
+
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+body::-webkit-scrollbar-track {
+    background-color: var(--clrNavBar);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--clrAccent);
+}
+
+
+/*-----NAVBAR-----*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffF;
+    z-index: 9999;
+    padding-block: 1rem;
+    background-color: var(--clrNavBar);
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    margin-inline: 2rem;
+}
+.header__logo {
+    max-width: 50px;
+    
+}
+.header__nombre {
+    font-weight: 600;
+    margin-inline: 0.8rem;
+    font-size:1.725em;
+    color: var(--clrSecondary);
+}
+.header__navegacion {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1rem;
+    margin-inline-end: 2rem;
+}
+.header__links {
+    text-decoration: none;
+    color: var(--clrMain);
+    cursor: pointer;
+    width: 9ch;
+}
+.header__links:focus,
+.header__links:hover {
+    color: var(--clrAccent);
+}
+
+
+/*----- ITEM COUNT -----*/
+
+.btn-menosmas {
+   background-color: var(--clrMain);
+   color: var(--clrNavBar);
+   border: 1px solid var(--clrNavBar);
+}
+
+.btn-menosmas:hover,
+.btn-menosmas:focus {
+    background-color: var(--clrMain);
+    border: 1px solid var(--clrNavBar);
+}
+
+.btn-add {
+    background-color: var(--clrSecondary);
+    border: none;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+    border: none;
+    color: var(--clrNavBar);
+    background-color: var(--clrSecondary);
+}
+
+/* -----OCULTAR FLECHAS DEL INPUT----- */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+
+/*------------ ITEM LIST CONTAINER ---------- */
+
+.itemListCardSection {
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 5rem;
+    padding-block: 3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #dee0de;
+}
+
+/*----- ITEM ----- */
+
+.itemCard {
+    border: 1px solid black;
+    color:#FFF;
+    border-radius: 0.7rem;
+}
+
+.itemCardImg {
+    max-width: 18rem; 
+    height: 15rem; 
+    object-fit: contain;
+}
+
+.itemCardBody {
+    background-color: var(--clrNavBar);
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ItemCount from './ItemCount';
-import { Stack, Button, ButtonGroup } from "react-bootstrap" 
+import { Button, ButtonGroup } from "react-bootstrap" 
 import swal from 'sweetalert';
 import { Link } from "react-router-dom"
 import { MiContexto } from '../context/CartContext';
@@ -26,9 +26,8 @@ export function ItemDetail({ detail }) {
     }
 
   return (
-    <>
-    <Stack gap={3}>
-        <div style={{display: "flex", alignItems:"center", borderRadius: "0.5rem", backgroundColor:"white"}}>
+    <div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#dee0de'}}>
+        <div style={{display: "flex", alignItems:"center", justifyContent:'center', gap:'15rem', borderRadius: "0.5rem", backgroundColor:"white"}}>
             <div>
                 <img src= { require("../images/"+ img +".png") } style={{width: "45vw", height: "80vh", objectFit:"contain"}} alt=""></img> 
             </div>
@@ -62,8 +61,7 @@ export function ItemDetail({ detail }) {
 
         </div>
         
-    </Stack>
-    </>
+    </div>
 
   )
 }

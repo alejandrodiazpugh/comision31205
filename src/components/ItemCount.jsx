@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Button, ButtonGroup }from "react-bootstrap"
-import "../css/itemCount.css"
+import { Button, ButtonGroup } from "react-bootstrap"
+import "../css/main.css"
 import swal from 'sweetalert'
 
 
@@ -25,7 +25,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
   }
 
   return (
-    <Card style={{marginInline: "10rem"}}>
+    <>
       <ButtonGroup style={{marginInline: "2rem"}}>
           <Button className='btn-menosmas' onClick={ restar }>-</Button>
           <input type="number" style={{"textAlign": "center"}} value={ count } readOnly/>
@@ -37,6 +37,6 @@ export default function ItemCount({ stock, initial, onAdd }) {
       <Button onClick={()=> { setCount(initial) }} variant="light" style={{"marginTop": "1rem", marginInline: "2rem"}}>
         Reset
       </Button>
-  </Card>
+  </>
   )
 }

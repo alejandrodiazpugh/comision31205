@@ -8,6 +8,8 @@ import { Carrito } from "./components/Carrito";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContext from "./context/CartContext";
 import { initializeApp } from "firebase/app";
+import { Footer } from "./components/Footer";
+import { Error404 } from "./components/Error404";
 
 export default function App() {
 
@@ -33,7 +35,9 @@ initializeApp(firebaseConfig);
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="/Carrito" element={<Carrito />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </CartContext>
   );

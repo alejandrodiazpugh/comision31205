@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../images/logo2.jpg"
-import "../css/navbar.css"
+import "../css/main.css"
 import { CartWidget } from "./CartWidget";
 import { Link } from "react-router-dom";
 
@@ -18,7 +18,7 @@ export const Navbar = () => {
             </div>
             <ul className="header__navegacion">
                 <Link to="./Inicio" style={{textDecoration:"none"}}><li className="header__links">Inicio</li></Link>
-                <Link to="./category/jordan" style={{textDecoration:"none"}}><li className="header__links">Air Jordans</li></Link>
+                <Link to="./category/jordan" style={{textDecoration:"none"}}><li className="header__links">Jordans</li></Link>
                 <Link to="./category/yeezy" style={{textDecoration:"none"}}><li className="header__links">Yeezys</li></Link>
                 <Link to="./category/converse" style={{textDecoration:"none"}}><li className="header__links">Converse</li></Link>
                 <Link to="./Carrito" style={{textDecoration:"none"}}><li className="header__links"> Mi Carrito</li></Link>
