@@ -23,7 +23,7 @@ const orderCollection = collection(db, 'orders');
     const order = {
       buyer: {orderName, orderPhone, orderEmail},
       items: carrito,
-      total: getItemPrice
+      total: getItemPrice()
     }
     
     addDoc(orderCollection, order).then(({id}) => {
