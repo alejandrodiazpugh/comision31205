@@ -1,5 +1,5 @@
 import React from 'react';
-import InicioHero from './InicioHero';
+import { Hero } from './Hero';
 import Item from "./Item";
 import "../css/main.css"
 import { useState } from 'react';
@@ -23,7 +23,7 @@ export default function ItemList({ items }) {
   })
   return (
     <>
-    {displayHero ? <InicioHero /> : ''}
+    {displayHero ? <Hero /> : ''}
     <section className="itemListCardSection">
         {items.map(item => <Item key={item.id} item = { item } />)}
     </section>

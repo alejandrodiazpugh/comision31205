@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 import { Link } from "react-router-dom"
 import { MiContexto } from '../context/CartContext';
 import { useContext } from 'react';
+import "../css/main.css"
 
 export function ItemDetail({ detail }) {
     const { id, nombre, descripcion, img, precio, color, stock } = detail;
@@ -27,7 +28,7 @@ export function ItemDetail({ detail }) {
 
   return (
     <div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#dee0de'}}>
-        <div style={{display: "flex", alignItems:"center", justifyContent:'center', gap:'15rem', borderRadius: "0.5rem", backgroundColor:"white"}}>
+        <div style={{display: "flex", alignItems:"center", justifyContent:'center', gap:'5vw', borderRadius: "0.5rem", backgroundColor:"white"}}>
             <div>
                 <img src= { require("../images/"+ img +".png") } style={{width: "45vw", height: "80vh", objectFit:"contain"}} alt=""></img> 
             </div>
@@ -50,10 +51,10 @@ export function ItemDetail({ detail }) {
                     <Button variant="secondary">30cm</Button>
                     <Button variant="secondary">31cm</Button>  
                 </ButtonGroup>
-                <p style={{marginInline: "10rem", marginBlock: "5rem"}}>{ descripcion }</p>
+                <p style={{marginInline: "12vw", marginBlock: "5rem"}}>{ descripcion }</p>
                 {dismount ? <div style={{marginInline:"10rem", display:"flex", flexDirection:"column", alignItems: "center", gap: "1rem"}}>
-                                <Link to="/"><Button variant="secondary" >Volver a la tienda</Button></Link> 
-                                <Link to="/Carrito"><Button variant="success" >Finalizar compra</Button></Link> 
+                                <Link to="/"><Button style={{backgroundColor:"#4b5158", border: "none"}} >Volver a la tienda</Button></Link> 
+                                <Link to="/Carrito"><Button style={{backgroundColor: "#fcce80", color: "#4b5158", border: "none" }} >Finalizar compra</Button></Link> 
                             </div> 
                         : <ItemCount stock={ stock } initial={ 1 } onAdd = {onAdd}/> }
                 

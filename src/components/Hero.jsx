@@ -2,7 +2,7 @@ import React from 'react'
 import heroImg from '../images/hero.jpg'
 import { Button } from 'react-bootstrap'
 
-export default function () {
+export function Hero() {
 
     const imgStyle = {
         objectFit: 'contain',

@@ -12,6 +12,8 @@ export function Footer() {
         justifyContent: 'space-between',
         paddingInline: '3rem'
     }
+
+
   return (
     <>
     <footer style={footerStyle}>

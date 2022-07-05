@@ -2,11 +2,12 @@ import React from "react";
 import { useContext } from "react";
 import Button from "react-bootstrap/esm/Button";
 import { MiContexto } from "../context/CartContext";
-import CarritoVacio from "./CarritoVacio";
-import { CarritoItems } from "./CarritoItems";
+import CarritoVacio from "./CartEmpty";
+import { CarritoItems } from "./CartItems";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export function Carrito() {
+export function Cart() {
   const {
     clear,
     carrito,
@@ -47,7 +48,7 @@ export function Carrito() {
               </Table>
               <div>
                 <h5>TOTAL: ${getItemPrice()}.00</h5>
-                <Button style={{ backgroundColor: "#fcce80", border: "none" }}>Ir a Checkout</Button>
+                <Link to='/OrderCheckout'><Button style={{ backgroundColor: "#fcce80", border: "none" }}>Ir a Checkout</Button></Link>
               </div>
             </div>
           )}

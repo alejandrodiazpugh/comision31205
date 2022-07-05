@@ -4,12 +4,13 @@ import { Navbar } from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
-import { Carrito } from "./components/Carrito";
+import { Cart } from "./components/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContext from "./context/CartContext";
 import { initializeApp } from "firebase/app";
 import { Footer } from "./components/Footer";
 import { Error404 } from "./components/Error404";
+import { OrderCheckout } from "./components/OrderCheckout";
 
 export default function App() {
 
@@ -34,8 +35,9 @@ initializeApp(firebaseConfig);
           <Route path="/Inicio" element={<ItemListContainer />} />
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-          <Route path="/Carrito" element={<Carrito />} />
+          <Route path="/Carrito" element={<Cart />} />
           <Route path="*" element={<Error404 />} />
+          <Route path='/OrderCheckout' element={<OrderCheckout />} />
         </Routes>
         <Footer />
       </BrowserRouter>

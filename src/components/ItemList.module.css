@@ -1,0 +1,9 @@
+.itemListCardSection {
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 5rem;
+    padding-block: 3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #dee0de;
+}

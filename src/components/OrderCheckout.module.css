@@ -1,0 +1,15 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnComplete {
+    background-color: var(--clrAccent);
+    color: var(--clrBackground);
+    border: none;
+    padding: 1rem;
+    margin-block: 1rem;
+    border-radius: 0.7rem;
+}

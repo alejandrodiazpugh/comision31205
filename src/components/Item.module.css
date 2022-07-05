@@ -1,0 +1,15 @@
+.itemCard {
+    border: 1px solid black;
+    color:#FFF;
+    border-radius: 0.7rem;
+}
+
+.itemCardImg {
+    max-width: 18rem; 
+    height: 15rem; 
+    object-fit: contain;
+}
+
+.itemCardBody {
+    background-color: var(--clrNavBar);
+}

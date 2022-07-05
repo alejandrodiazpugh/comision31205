@@ -1,0 +1,39 @@
+/*----- ITEM COUNT -----*/ /* React Bootstrap sobreescribe esto, no sé porque... everywhere  */
+
+.btn__menosmas {
+    background-color: var(--clrMain);
+    color: var(--clrNavBar);
+    border: 1px solid var(--clrNavBar);
+ }
+ 
+ .btn__menosmas:hover,
+ .btn__menosmas:focus {
+     background-color: var(--clrMain);
+     border: 1px solid var(--clrNavBar);
+ }
+ 
+ .btn__add {
+     background-color: var(--clrAccent);
+     color: var(--clrBackground);
+     border: none;
+ }
+ 
+ .btn__add:hover,
+ .btn__add:focus {
+     border: none;
+     background-color: #fcce80e3;
+ }
+ 
+ /* -----OCULTAR FLECHAS DEL INPUT----- */
+ 
+ input::-webkit-outer-spin-button,
+ input::-webkit-inner-spin-button {
+     /* display: none; <- Crashes Chrome on hover */
+     -webkit-appearance: none;
+     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+ }
+ 
+ input[type=number] {
+     -moz-appearance:textfield; /* Firefox */
+ }
+ 
