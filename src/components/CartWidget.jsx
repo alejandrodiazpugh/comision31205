@@ -9,8 +9,7 @@ export const CartWidget = () => {
 
   return (
     <>
-    <li className='header__links'><BsFillCartFill />{(getItemQty() === 0) ? "" : <Badge pill bg="danger">{ getItemQty() }</Badge>}</li>
-    
+    <BsFillCartFill style={{display: "inline"}}/>{(getItemQty() === 0) ? "" : <Badge pill bg="danger">{ getItemQty() }</Badge>}
     </>
   )
 }

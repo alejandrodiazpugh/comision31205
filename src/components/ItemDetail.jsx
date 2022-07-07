@@ -27,7 +27,7 @@ export function ItemDetail({ detail }) {
     }
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#dee0de'}}>
+    <div style={{display: 'flex', justifyContent: 'center'}}>
         <div style={{display: "flex", alignItems:"center", justifyContent:'center', gap:'5vw', borderRadius: "0.5rem", backgroundColor:"white"}}>
             <div>
                 <img src= { require("../images/"+ img +".png") } style={{width: "45vw", height: "80vh", objectFit:"contain"}} alt=""></img> 

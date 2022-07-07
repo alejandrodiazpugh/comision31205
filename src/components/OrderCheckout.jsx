@@ -7,7 +7,6 @@ import * as styles from './OrderCheckout.module.css'
 import {CarritoItems} from './CartItems';
 import {Table, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import { useEffect } from 'react';
 
 export function OrderCheckout() {
 const { carrito, setCarrito, clear, getItemPrice } = useContext(MiContexto);
@@ -39,7 +38,7 @@ const orderCollection = collection(db, 'orders');
 
   return (
     <div>
-      <h1>Checkout:</h1>
+      <h1 className={styles.checkoutTitle}>Resumen de pedido:</h1>
       {purchaseComplete ? 
       <div
         style={{
@@ -63,8 +62,9 @@ const orderCollection = collection(db, 'orders');
         </Link>
      </div> 
      : 
-     <div>
-        <Table striped bordered hover>
+     <div className={styles.checkoutContainer}>
+      <div>
+      <Table striped bordered hover className={styles.checkoutTable}>
           <thead>
             <tr>
               <th>Preview</th>
@@ -79,6 +79,8 @@ const orderCollection = collection(db, 'orders');
             {carrito.map(producto => <CarritoItems key={producto.id} producto = {producto}/>)}
           </tbody>
         </Table>
+        <h3>Total a pagar: ${getItemPrice()}.00</h3>
+      </div>
         <form action="" className={styles.form}>
           <label htmlFor="name">Nombre Completo:</label>
             <input onChange={(e) => setOrderName(e.target.value)} type="text" name="name" id="orderName" />
@@ -86,7 +88,7 @@ const orderCollection = collection(db, 'orders');
             <input onChange={(e) => setOrderEmail(e.target.value)}type="email" name="mailing" id="orderEmail" />
           <label htmlFor="phone">Teléfono:</label>
             <input onChange={(e) => setOrderPhone(e.target.value)} type="tel" name="phone" id="orderPhone"/>
-          <button className={styles.btnComplete} type='button' onClick={handleClick}>Finalizar Compra</button>
+          <Button className={styles.btnComplete}>Finalizar Compra</Button>
         </form>
       </div>
     }

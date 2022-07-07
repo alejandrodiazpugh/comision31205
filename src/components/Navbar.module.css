@@ -1,13 +1,12 @@
 
 
 /*-----NAVBAR-----*/
-header {
+.header {
     display: flex;
     justify-content: space-between;
-    background-color: var(--clrBackground) !important;
+    background-color: var(--clrNavbar) !important;
     z-index: 9999;
     padding-block: 1rem;
-    background-color: var(--clrNavbar);
 }
 
 .header button {

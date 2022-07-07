@@ -15,9 +15,9 @@ export default function Item({ item }) {
     
     
   return (
-    <Card style={{ width: '18rem', border: "2px solid #4b5158"}} className="itemCard">
+    <Card style={{ width: '18rem', outline: "1px solid #555", border: "none"}} className="itemCard">
         <Card.Img variant="top" className="itemCardImg" src= { require("../images/"+img+".png") } />
-        <Card.Body style={{display:"flex", flexDirection:"column" ,justifyContent:"center", alignItems:"center"}} className="itemCardBody">
+        <Card.Body style={{display:"flex", flexDirection:"column" ,justifyContent:"center", alignItems:"center", borderRadius: "0 0 0.5rem 0.5rem"}} className="itemCardBody">
             <Card.Text style={{fontWeight:"lighter", backgroundColor: "#90d4e4", color:"black", borderRadius: "0.3rem", paddingInline:"8px"}}><AiOutlineTags />{ category }</Card.Text>
             <Card.Title style={{textAlign:"center"}}>{ nombre }</Card.Title>
             <Card.Text>Color: { color }.</Card.Text>

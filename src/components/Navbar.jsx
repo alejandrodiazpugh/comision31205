@@ -70,8 +70,9 @@ export const Navbar = () => {
         >
           <li className={style.header__links}>
             Mi Carrito
+            <CartWidget />
           </li>
-          <CartWidget />
+          
         </Link>
       </ul>
     </header>

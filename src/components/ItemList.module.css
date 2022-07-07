@@ -5,5 +5,5 @@
     padding-block: 3rem;
     justify-content: center;
     align-items: center;
-    background-color: #dee0de;
+    background-color: var(--clrBody);
 }

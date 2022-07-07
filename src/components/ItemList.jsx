@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hero } from './Hero';
 import Item from "./Item";
-import "../css/main.css"
+import * as styles from "./ItemList.module.css"
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -24,7 +24,7 @@ export default function ItemList({ items }) {
   return (
     <>
     {displayHero ? <Hero /> : ''}
-    <section className="itemListCardSection">
+    <section className={styles.itemListCardSection}>
         {items.map(item => <Item key={item.id} item = { item } />)}
     </section>
     </>
