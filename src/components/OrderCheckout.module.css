@@ -1,3 +1,8 @@
+.masterContainer {
+    display: grid;
+    place-content: center;
+}
+
 .checkoutTitle {
     margin-block: 1rem;
     margin-inline: 3vw;
@@ -7,10 +12,18 @@
     margin-inline: 3vw;
     display: flex;
     min-height: 60vh;
+    margin-block: 3rem;
+    gap: 2.5vw;
 }
 
-.checkoutTable {
-    max-width: 50vw;
+.finalListingCard {
+    box-shadow: 9px 7px 20px 1px #F2F2F2;
+    border-radius: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-inline-start: 1rem;
+    width: 45vw;
 }
 
 .form {
@@ -32,6 +45,69 @@
 
 .btnComplete:hover,
 .btnComlete:focus {
-    background-color: hsla(38, 95%, 75%, 0.174);
+    background-color: var(--clrAccentAlt);
     color: var(--clrBackground);
+    border: none; 
+}
+
+.orderCompleteContainer {
+    width: 90vw;
+    box-shadow: 9px 7px 20px 1px #F2F2F2;
+    border-radius: 0.7rem;
+    margin-block-end: 3rem;
+    padding-block-end: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.label {
+    text-align: left;
+    margin-block-end: 0.1rem;
+}
+.field {
+    border: 2px solid var(--clrMain);
+    border-radius: 0.3rem;
+    width: 300px;
+}
+
+.error {
+    font-size: small;
+    color: var(--clrSecondary);
+    height: 1em;
+    margin-block-end: 0.3rem;
+}
+
+.btn,
+.btn:active {
+    margin-block: 0.5rem;
+    color: var(--clrNavBar);
+    background-color: var(--clrAccent);
+    border: none;
+}
+
+.btn:hover,
+.btn:focus {
+    color: var(--clrNavBar);
+    background-color: var(--clrAccentAlt);
+    border: none;
+}
+
+
+@media only screen and (max-width: 912px) {
+    .checkoutContainer {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .field {
+        max-width: 90%;
+    }
 }

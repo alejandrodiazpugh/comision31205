@@ -31,11 +31,11 @@ export default function ItemCount({ stock, initial, onAdd }) {
           <input type="number" style={{"textAlign": "center"}} value={ count } readOnly/>
           <Button className={style.btn__menosmas} onClick={ sumar }>+</Button>
       </ButtonGroup>
-      <Button onClick={() => onAdd(count)} className={style.btn__add} style={{"marginTop": "1rem", marginInline: "2rem"}}>
-          Añadir
+      <Button onClick={() => onAdd(count)} className={style.btn__add}>
+          Agregar al Carrito
       </Button>
-      <Button onClick={()=> { setCount(initial) }} variant="light" style={{"marginTop": "1rem", marginInline: "2rem"}}>
-        Reset
+      <Button onClick={()=> { setCount(initial) }} className={style.btn__reset}>
+        Reestablecer contador
       </Button>
   </>
   )

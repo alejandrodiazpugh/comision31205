@@ -6,6 +6,7 @@ import CarritoVacio from "./CartEmpty";
 import { CarritoItems } from "./CartItems";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import styles from './Cart.module.css'
 
 export function Cart() {
   const {
@@ -16,7 +17,7 @@ export function Cart() {
 
   return (
     <>
-      <div style={{ marginInline: "5rem", marginBlock: "3rem" }}>
+      <div className={styles.container}>
         <div>
           {carrito.length === 0 ? (
             <CarritoVacio />
@@ -25,30 +26,30 @@ export function Cart() {
               <div style={{ display: "flex", justifyContent: "space-between", marginBlockEnd:"3rem" }}>
                 <h3>Carrito:</h3>
                 <Button
-                  style={{ borderColor: "#fcce80", backgroundColor:"white", color:"#fcce80"}}
+                  className={styles.btnClearAll}
                   onClick={clear}
                 >
                   Eliminar todo
                 </Button>
               </div>
-              <Table striped bordered hover>
+              <Table striped bordered>
                 <thead>
                   <tr>
-                    <th>Preview</th>
+                    <th></th>
                     <th>Producto</th>
                     <th>Cantidad</th>
                     <th>Precio Unitario</th>
                     <th>Precio Total</th>
-                    <th>Eliminar</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   {carrito.map(producto => <CarritoItems key={producto.id} producto = {producto}/>)}
                 </tbody>
               </Table>
-              <div>
-                <h5>TOTAL: ${getItemPrice()}.00</h5>
-                <Link to='/OrderCheckout'><Button style={{ backgroundColor: "#fcce80", border: "none" }}>Ir a Checkout</Button></Link>
+              <div className={styles.checkout}>
+                <h5>TOTAL: ${(getItemPrice()).toLocaleString('en-US')}</h5>
+                <Link to='/OrderCheckout'><Button className={styles.btnCheckout}>Finalizar Compra</Button></Link>
               </div>
             </div>
           )}

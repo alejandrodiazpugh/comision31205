@@ -27,7 +27,7 @@ export function Hero() {
     
     const clickToScroll = (e) => {
         window.scrollTo({
-            top: 1000,
+            top: 600,
             behavior: 'smooth'
         })
     }

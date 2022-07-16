@@ -1,15 +1,50 @@
 .itemCard {
-    border: 1px solid black;
+    border: none;
+    box-shadow: 9px 7px 20px 1px #F2F2F2;
     color:#FFF;
     border-radius: 0.7rem;
+    display: flex;
+    align-items: center;
 }
 
 .itemCardImg {
-    max-width: 18rem; 
-    height: 15rem; 
+    width: 15rem; 
+    height: 10rem; 
     object-fit: contain;
 }
 
+.cardCategory {
+    margin-block-start: 1rem;
+    font-weight: lighter; 
+    font-size: small;
+    border: 1px solid var(--clrSecondary); 
+    color:var(--clrNavBar);
+    border-radius: 0.3rem; 
+    padding-inline: 8px;
+}
+
+.icon {
+    color: var(--clrSecondary); 
+}
+
 .itemCardBody {
-    background-color: var(--clrNavBar);
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 0.5rem 0.5rem;
+    color: var(--clrNavBar);
+}
+
+.btnItem {
+    color: var(--clrNavBar);
+    background-color: var(--clrAccent);
+    border: none;
+}
+
+.btnItem:hover,
+.btnItem:focus {
+    color: var(--clrNavBar);
+    background-color: var(--clrAccentAlt);
+    border: none;
 }

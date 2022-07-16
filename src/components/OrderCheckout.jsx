@@ -1,95 +1,150 @@
-import { getFirestore,addDoc, collection } from 'firebase/firestore';
-import React from 'react'
-import { useContext } from 'react'
-import { useState } from 'react'
-import { MiContexto } from '../context/CartContext'
-import * as styles from './OrderCheckout.module.css'
-import {CarritoItems} from './CartItems';
-import {Table, Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { getFirestore, addDoc, collection } from "firebase/firestore";
+import React from "react";
+import { useContext } from "react";
+import { useState } from "react";
+import { MiContexto } from "../context/CartContext";
+import styles from "./OrderCheckout.module.css";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export function OrderCheckout() {
-const { carrito, setCarrito, clear, getItemPrice } = useContext(MiContexto);
-const [orderName, setOrderName] = useState('')
-const [orderPhone, setOrderPhone] = useState('')
-const [orderEmail, setOrderEmail] = useState('')
-const [purchaseComplete, setPurchaseComplete] = useState(false)
+  const { carrito, getItemPrice, clear } = useContext(MiContexto);
+  const [purchaseComplete, setPurchaseComplete] = useState(false);
 
-const db = getFirestore();
-const orderCollection = collection(db, 'orders');
+  const db = getFirestore();
+  const orderCollection = collection(db, "orders");
 
-  const handleClick = () => {
-    const order = {
-      buyer: {orderName, orderPhone, orderEmail},
-      items: carrito,
-      total: getItemPrice()
-    }
-    
-    addDoc(orderCollection, order).then(({id}) => {
-      console.log(id)
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      cart: carrito
+    },
+    validationSchema: Yup.object({
+      firstName: Yup.string().required("Campo Obligatorio"),
+      lastName: Yup.string().required("Campo Obligatorio"),
+      email: Yup.string()
+        .email("Ingresa una dirección de correo válida")
+        .required("Campo Obligatorio"),
+      phone: Yup.string()
+        .matches(phoneRegExp, "Ingresa un número de teléfono válido")
+        .required("Campo Obligatorio"),
+      cart: Yup.array()
+      .min(1)
+      .required('El carrito está vacío')
+    }),
+    onSubmit: (values) => {
+      addDoc(orderCollection, values).then(() => {
+       clear();
+      })
+      .finally(() => 
+      setPurchaseComplete(true));
+        }
     })
-  
-    setPurchaseComplete(true)
-  }
-
-
-//TODO: VALIDAR ORDEN
 
 
   return (
-    <div>
+    <div className={styles.masterContainer}>
       <h1 className={styles.checkoutTitle}>Resumen de pedido:</h1>
-      {purchaseComplete ? 
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "2rem",
-        }}>
-        <h4 style={{ textAlign: "center", marginBlockStart: "25vh" }}>
-          ¡Tu orden ya nos llegó!
-        </h4>
-        <h6 style={{textAlign: "center", marginBlock: "5vh"}}>Tu confirmación llegará al correo que nos proporcionaste</h6>
-        <Link to="/">
-          <Button
-            style={{ backgroundColor: "#fcce80", border: "none" }}
-            size="lg"
-          >
-            Ir a la tienda
-          </Button>
-        </Link>
-     </div> 
-     : 
-     <div className={styles.checkoutContainer}>
-      <div>
-      <Table striped bordered hover className={styles.checkoutTable}>
-          <thead>
-            <tr>
-              <th>Preview</th>
-              <th>Producto</th>
-              <th>Cantidad</th>
-              <th>Precio Unitario</th>
-              <th>Precio Total</th>
-              <th>Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {carrito.map(producto => <CarritoItems key={producto.id} producto = {producto}/>)}
-          </tbody>
-        </Table>
-        <h3>Total a pagar: ${getItemPrice()}.00</h3>
-      </div>
-        <form action="" className={styles.form}>
-          <label htmlFor="name">Nombre Completo:</label>
-            <input onChange={(e) => setOrderName(e.target.value)} type="text" name="name" id="orderName" />
-          <label htmlFor="email">Correo Electrónico:</label>
-            <input onChange={(e) => setOrderEmail(e.target.value)}type="email" name="mailing" id="orderEmail" />
-          <label htmlFor="phone">Teléfono:</label>
-            <input onChange={(e) => setOrderPhone(e.target.value)} type="tel" name="phone" id="orderPhone"/>
-          <Button className={styles.btnComplete}>Finalizar Compra</Button>
-        </form>
-      </div>
-    }
-</div> ) }
+      {purchaseComplete ? (
+        <div className={styles.orderCompleteContainer}>
+          <h4 style={{ textAlign: "center", marginBlockStart: "25vh" }}>
+            ¡Tu orden ya nos llegó!
+          </h4>
+          <h6 style={{ textAlign: "center", marginBlock: "5vh" }}>
+            Tu confirmación llegará al correo que nos proporcionaste.
+          </h6>
+          <Link to="/">
+            <Button
+              className={styles.btn}
+              size="lg"
+            >
+              Ir a la tienda
+            </Button>
+          </Link>
+        </div>
+      ) : (
+        <div className={styles.checkoutContainer}>
+          <div className={styles.finalListingCard}>
+            <div>
+              <h5>Productos:</h5>
+              {carrito.map((producto) => (
+                <section>
+                  {producto.quantity} x {producto.nombre} - $
+                  {(producto.precio * producto.quantity).toLocaleString(
+                    "en-US"
+                  )}
+                </section>
+              ))}
+            </div>
+
+            <h3>Total a pagar: ${getItemPrice().toLocaleString("en-US")}.00</h3>
+          </div>
+          <div className={styles.finalListingCard}>
+            <h5>Detalles de comprador:</h5>
+            <form onSubmit={formik.handleSubmit} className={styles.form}>
+              <label className={styles.label} htmlFor="firstName">Nombre:</label>
+              <input className={styles.field}
+                id="firstName"
+                type="text"
+                {...formik.getFieldProps("firstName")}
+              />
+              <div className={styles.error}>
+              {formik.touched.firstName && formik.errors.firstName ? (
+               <p>{formik.errors.firstName}</p> 
+              ) : null}
+              </div>
+
+              <label className={styles.label} htmlFor="lastName">Apellido:</label>
+              <input
+                className={styles.field}
+                id="lastName"
+                type="text"
+                {...formik.getFieldProps("lastName")}
+              />
+              <div className={styles.error}>
+              {formik.touched.lastName && formik.errors.lastName ? (
+               <p>{formik.errors.lastName}</p>
+              ) : null}
+              </div>
+
+              <label className={styles.label} htmlFor="phone">Teléfono: </label>
+              <input
+               className={styles.field}
+                id="phone"
+                type="phone"
+                {...formik.getFieldProps("phone")}
+              />
+              <div className={styles.error}>
+              {formik.touched.phone && formik.errors.phone ? (
+                <p>{formik.errors.phone}</p>
+              ) : null}
+              </div>
+
+              <label className={styles.label} htmlFor="email">Correo Electrónico:</label>
+              <input
+                className={styles.field}
+                id="email"
+                type="email"
+                {...formik.getFieldProps("email")}
+              />
+              <div className={styles.error}>
+              {formik.touched.email && formik.errors.email ? (
+                <p>{formik.errors.email}</p>
+              ) : null}
+              </div>
+
+              <Button type="submit"  className={styles.btn}>Pagar</Button>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

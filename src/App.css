@@ -4,10 +4,10 @@
 
 :root {
     --clrAccent: #fcce80;
+    --clrAccentAlt: hsla(38, 95%, 75%, 0.840);
     --clrMain: #90d4e4;
     --clrSecondary: #f48581;
     --clrNavBar: #495057;
-    --clrBackground: #34344A;
     --clrBody: #FFF;
 
 }
@@ -19,14 +19,23 @@
     padding: 0;
     scroll-behavior: smooth;
 }
-/*-----TIPOGRAFIA-----*/
+/*-----BODY Y HTML -----*/
 body {
     font-family: "Red Hat Display", sans-serif;
     overflow-x: hidden;
+    min-height: 100vh;
+}
+
+footer {
+  min-height: 50px;
 }
 
 html {
   background-color: var(--clrBody);
+}
+
+::selection {
+  background-color: var(--clrSecondary);
 }
 
 /* ----- SCROLLBAR ----- */

@@ -14,14 +14,34 @@
  
  .btn__add {
      background-color: var(--clrAccent);
-     color: var(--clrBackground);
+     color: var(--clrNavBar);
      border: none;
+     margin-block-start: 1rem;
  }
  
  .btn__add:hover,
  .btn__add:focus {
      border: none;
-     background-color: #fcce80e3;
+     background-color: var(--clrAccentAlt);
+     color: var(--clrNavBar);
+ }
+
+ .btn__reset {
+    background-color: #FFF;
+    border: none;
+    color: var(--clrSecondary);
+    font-size: small;
+    margin-block-start: 1rem;
+ }
+
+ .btn__reset:hover,
+ .btn__reset:focus {
+    background-color: #FFF;
+    border: none;
+    color: var(--clrSecondary);
+    font-size: small;
+    margin-block-start: 1rem;
+    text-decoration: underline;
  }
  
  /* -----OCULTAR FLECHAS DEL INPUT----- */

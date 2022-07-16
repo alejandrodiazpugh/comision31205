@@ -1,22 +1,12 @@
 import React from 'react'
 import { TiSocialInstagram, TiSocialFacebook, TiSocialTwitter } from "react-icons/ti"
+import styles from './Footer.module.css'
 
 export function Footer() {
 
-    const footerStyle = {
-        width: '100vw',
-        paddingBlockStart: '3rem',
-        backgroundColor: '#495057',
-        color: 'white',
-        display: "flex",
-        justifyContent: 'space-between',
-        paddingInline: '3rem'
-    }
-
-
   return (
     <>
-    <footer style={footerStyle}>
+    <footer className={styles.container}>
     <section>
             <h6>CONTACTANOS:</h6>
             <address>Ave. Siempreviva 742, Springfield, MO.</address>

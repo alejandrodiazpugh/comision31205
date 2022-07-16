@@ -1,0 +1,61 @@
+.container {
+    margin-block: 3rem;
+    margin-inline: 2rem;
+    min-height: calc(100vh - 155.2px);
+}
+
+.emptyContainer {
+    width: 100%;
+    min-height: calc(100vh - 155.2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-inline: 0;
+}
+
+.btnClear {
+    background-color: transparent;
+    border: 1px solid var(--clrSecondary);
+    color: var(--clrSecondary);
+}
+.btnClear:hover,
+.btnClear:focus {
+    background-color: transparent;
+    border: 1px solid var(--clrSecondary);
+    color: var(--clrSecondary);
+    text-decoration: underline;
+}
+
+.btnClearAll {
+    background-color: var(--clrSecondary);
+    border: none;
+
+}
+
+.btnClearAll:hover,
+.btnClearAll:focus {
+    background-color: var(--clrSecondary);
+    border: none;
+    text-decoration: underline;
+}
+
+.checkout {
+    display: flex;
+    justify-content: space-between;
+    margin-block-start: 10vh;
+}
+
+.btnCheckout {
+    color: var(--clrNavBar);
+    background-color: var(--clrAccent);
+    border: none;
+}
+
+.btnCheckout:hover,
+.btnCheckout:active {
+    color: var(--clrNavBar);
+    background-color: var(--clrAccentAlt);
+    border: none;
+}

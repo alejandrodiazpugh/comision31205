@@ -30,7 +30,7 @@ export function ItemDetailContainer() {
 
 
   return (
-    <div style={{marginBlock: '10rem'}}>
+    <div style={{marginBlock: '3rem'}}>
      {loading ? <Loading /> : <ItemDetail detail = { products } /> }
     </div>
   )

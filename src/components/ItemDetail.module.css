@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center; 
+    gap: 5vw;
+    box-shadow: 12px 7px 30px 1px #F2F2F2;
+    border-radius: 0.7rem;
+    margin-inline: 3rem;
+    padding-block: 1rem;
+}
+
+.img {
+    width: 45vw;
+    height: 80vh; 
+    object-fit: contain;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.description {
+    margin-inline: 12vw;
+    margin-block: 2rem;
+    text-align: center; 
+}
+
+.afterPurchase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;    
+}
+
+.btn__back {
+    border: none;
+    background-color: #FFF;
+    color: var(--clrSecondary);
+    font-size: small;
+}
+
+.btn__back:hover,
+.btn__back:focus {
+    border: none;
+    background-color: #FFF;
+    color: var(--clrSecondary);
+    text-decoration: underline;
+}
+
+.btn__completePurchase {
+    border: none;
+    color: var(--clrNavBar);
+    background-color: var(--clrAccent);
+}
+
+.btn__completePurchase:hover,
+.btn__completePurchase:focus {
+    color: var(--clrNavBar);
+    background-color: var(--clrAccentAlt);
+}
+
+@media only screen and (max-width: 912px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .img {
+        object-fit: contain;
+        object-position: center;
+        margin-block-start: 2rem;
+        max-height: 40vh;
+    }
+}

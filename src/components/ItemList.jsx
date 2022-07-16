@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hero } from './Hero';
 import Item from "./Item";
-import * as styles from "./ItemList.module.css"
+import styles from "./ItemList.module.css"
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';

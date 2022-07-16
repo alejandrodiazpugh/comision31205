@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../images/logo2.jpg";
-import * as style from "./Navbar.module.css";
+import styles from "./Navbar.module.css";
 import { CartWidget } from "./CartWidget";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
@@ -13,17 +13,20 @@ export const Navbar = () => {
   const handleToggle = () => {
     setNavbarOpen((prev) => !prev);
   };
+  const closeNavbar = () => {
+    setNavbarOpen(false);
+  }
   return (
-    <header className={style.header}>
-      <div className={style.logo}>
-        <Link to="/" onClick={() => setNavbarOpen(false)}>
+    <header className={styles.header}>
+      <div className={styles.logo}>
+        <Link to="/" onClick={closeNavbar}>
           <img
-            className={style.header__logo}
+            className={styles.header__logo}
             src={Logo}
             alt="logo de la tienda"
           />
           <h2
-            className={style.header__nombre}
+            className={styles.header__nombre}
             style={{ display: "inline-block" }}
           >
             Runners Riot
@@ -36,43 +39,40 @@ export const Navbar = () => {
       <ul
         className={
           navbarOpen
-            ? `${style.header__navegacion} ${style.expanded}`
-            : `${style.header__navegacion} ${style.reduced}`
+            ? `${styles.header__navegacion} ${styles.expanded}`
+            : `${styles.header__navegacion} ${styles.reduced}`
         }
       >
-        <Link
-          to="./Inicio"
-          style={{ listStyle: "none", textDecoration: "none" }}
-        >
-          <li className={style.header__links} onClick={() => setNavbarOpen(false)}>Inicio</li>
+        <Link to="./Inicio" >
+          <li
+            className={styles.header__links}
+            onClick={closeNavbar}
+          >
+            Inicio
+          </li>
         </Link>
-        <Link
-          to="./category/jordan"
-          style={{ listStyle: "none", textDecoration: "none" }}
-        >
-          <li className={style.header__links} onClick={() => setNavbarOpen(false)}>Jordans</li>
+        <Link to="./category/jordan">
+          <li
+            className={styles.header__links}
+            onClick={closeNavbar}
+          >
+            Jordans
+          </li>
         </Link>
-        <Link
-          to="./category/yeezy"
-          style={{ listStyle: "none", textDecoration: "none" }}
-        >
-          <li className={style.header__links}>Yeezys</li>
+        <Link to="./category/yeezy">
+          <li className={styles.header__links}
+          onClick={closeNavbar}>Yeezys</li>
         </Link>
-        <Link
-          to="./category/converse"
-          style={{ listStyle: "none", textDecoration: "none" }}
-        >
-          <li className={style.header__links}>Converse</li>
+        <Link to="./category/converse">
+          <li className={styles.header__links}
+          onClick={closeNavbar}>Converse</li>
         </Link>
-        <Link
-          to="./Carrito"
-          style={{ listStyle: "none", textDecoration: "none" }}
-        >
-          <li className={style.header__links}>
+        <Link to="./Carrito">
+          <li className={`${styles.header__links} ${styles.header__linksLast}`}
+          onClick={closeNavbar}>
             Mi Carrito
             <CartWidget />
           </li>
-          
         </Link>
       </ul>
     </header>

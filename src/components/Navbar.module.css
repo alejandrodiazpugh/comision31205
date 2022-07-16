@@ -4,7 +4,7 @@
 .header {
     display: flex;
     justify-content: space-between;
-    background-color: var(--clrNavbar) !important;
+    background-color: var(--clrNavBar);
     z-index: 9999;
     padding-block: 1rem;
 }
@@ -16,37 +16,49 @@
 .logo {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     cursor: pointer;
     margin-inline: 2rem;
 }
 .header__logo {
-    max-width: 50px;
-    
+    width: clamp(20px, 50px, 60px); 
 }
 .header__nombre {
     font-weight: 600;
     margin-inline: 0.8rem;
     font-size:1.725em;
     color: var(--clrSecondary);
+    padding-block: 0;
 }
 .header__navegacion {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 1rem;
+    gap: 1.3rem;
     margin-inline-end: 2rem;
 }
+.header__navegacion > a {
+    list-style: none;
+    text-decoration: none;
+}
+
 .header__links {
     text-decoration: none;
     color: var(--clrSecondary);
     cursor: pointer;
-    width: 9ch;
+    display: flex;
+    align-items: center;
+    gap:0.3rem;
 }
 .header__links:focus,
 .header__links:hover {
     color: var(--clrAccent);
 }
+
+.header__linksLast {
+    width: 15ch;
+}
+
 
 
 @media only screen and (max-width: 912px) {
@@ -55,7 +67,7 @@
         margin-inline-end: 20px;
         color: var(--clrSecondary);
         border: none;
-        background-color: var(--clrNavbar);
+        background-color: var(--clrNavBar);
     }
 
     .header__navegacion {
@@ -66,16 +78,17 @@
         flex-direction: column;
         width: 100vw;
         height: calc(100vh-70px);
-        background-color: var(--clrBackground);
+        background-color: var(--clrNavBar);
         z-index: 15;
         padding-block: 0.725rem;
     }
     .header__navegacion.expanded {
         z-index: 12;
         display: block;
-        transition: ease-out 600ms;
+        transition: ease-in 600ms;
         animation: slideIn 500ms;
         animation-fill-mode: both;
+        transform-origin: top center;
     }
     .reduced {
     animation: slideOut 300ms;
@@ -85,41 +98,31 @@
     .header__links {
         width: 100%;
         text-align: center;
-        margin: 0;
+        justify-content: center;
+        margin-block: 0.1rem;
     }
+    .header__linksLast {
+        width: inherit;
+        margin-inline: 0;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .header__navegacion.expanded > a {
+        width: 100%;
+        text-align: center;
+    }
+
 }
 
 
 @keyframes slideIn {
     0% {
-      transform: translateY(-80%);
-      opacity: 0;
-    }
-
-    50% {
-        opacity: 0.1;
+      transform: scaleY(0);
     }
   
     100% {
-      transform: translateY(0%);
-      opacity: 1;
+      transform: scaleY(1);
     }
   
   }
-
-@keyframes slideOut {
-0% {
-    transform: translateX(-80%);
-    opacity: 1;
-}
-
-100% {
-    transform: translateY(-1rem);
-    opacity: 1;
-}
-
-0% {
-    transform: translateY(1rem);
-    opacity: 0;
-}
-}
