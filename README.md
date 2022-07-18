@@ -22,3 +22,9 @@ A lo largo del proyecto, fortalecí mi entendimiento de JavaScript, así como ap
 - Limpieza de código y estructura de folders
 - Repetición de código (tanto JS como CSS - usar mixins de SASS hubiera ahorrado mucho tiempo con los modulos de CSS, y tener componentes listos para los botones/contendores hubiera reducido mucho el tiempo de trabajo).
 - Aprendí un poco de autenticación de usuarios, pero no pude implementarlo en el proyecto.
+
+
+
+### Deploy demo:
+
+https://comision31205-8a152.web.app/
